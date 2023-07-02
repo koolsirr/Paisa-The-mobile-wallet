@@ -36,7 +36,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     MaterialButton(
                       height: 80,
                       minWidth: double.infinity,
-                      color: const Color(0xFF1E232C),
+                      color: const Color(0xFF473C38),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -58,7 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     MaterialButton(
                       height: 80,
                       minWidth:double.infinity,
-                      color: const Color(0xFF1E232C),
+                      color: const Color(0xFF473C38),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

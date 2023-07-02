@@ -18,12 +18,15 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         body: Stack(
           children:[
             SingleChildScrollView(
               child: Container(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height*0.52,
+                  padding: const EdgeInsets.only(
                       left: 20,
                       right: 20
                   ),
