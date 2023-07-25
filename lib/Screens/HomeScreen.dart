@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:paisa_majorproject/Screens/End_NavBar.dart';
 import 'package:paisa_majorproject/Screens/NavBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +16,13 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         drawer: NavBar(),
+        endDrawer: EndNavBar(),
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: const CupertinoIconThemeData(
+            color: Colors.black
+          ),
 
         ),
       ),

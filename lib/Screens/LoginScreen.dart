@@ -20,6 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black
+          ),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
