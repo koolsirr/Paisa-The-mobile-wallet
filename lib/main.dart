@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
           'welcome':(context)=>const WelcomeScreen(),
           'login':(context)=>const LoginScreen(),
           'register':(context)=>const RegisterScreen(),
+          'home':(context)=>const HomeScreen(),
+
         }
     );
   }

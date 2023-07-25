@@ -13,9 +13,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          image:DecorationImage(
-              image: AssetImage('assets/images/bg.png'),fit: BoxFit.cover)
-      ),
+          image: DecorationImage(
+              image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -23,17 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
           elevation: 0,
         ),
         body: Stack(
-          children:[
+          children: [
             SingleChildScrollView(
               child: Container(
-                  padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20
-                  ),
-                  child:
-                  Column(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
                     children: [
-                      const Text('Sign In',
+                      const Text(
+                        'Sign In',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontSize: 20,
@@ -46,9 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             filled: true,
                             hintText: 'UserName',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13)
-                            )
-                        ),
+                                borderRadius: BorderRadius.circular(13))),
                       ),
                       const SizedBox(
                         height: 30,
@@ -60,22 +54,25 @@ class _LoginScreenState extends State<LoginScreen> {
                             filled: true,
                             hintText: 'Password',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13)
-                            )
-                        ),
+                                borderRadius: BorderRadius.circular(13))),
                       ),
                       const SizedBox(
-                        height: 10,),
+                        height: 10,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           CircleAvatar(
                             radius: 30,
                             backgroundColor: const Color(0xff473c38),
                             child: IconButton(
                               color: Colors.white,
-                              onPressed: (){},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const HomeScreen()));
+                              },
                               icon: const Icon(Icons.arrow_forward_ios_rounded),
                             ),
                           )
@@ -87,23 +84,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TextButton(onPressed: (){}, child: const Text(
-                            'Forgot Password',
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontSize: 18,
-                                color: Color(0xff4c505b)
-                            ),))
+                          TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Forgot Password',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 18,
+                                    color: Color(0xff4c505b)),
+                              ))
                         ],
                       )
                     ],
-                  )
-              ),
+                  )),
             )
-
           ],
         ),
-
       ),
     );
   }
