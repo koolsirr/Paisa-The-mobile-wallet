@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:paisa_majorproject/Screens/HomeScreen.dart';
+import 'package:paisa_majorproject/Screens/WelcomeScreen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -29,7 +31,20 @@ class _NavBarState extends State<NavBar> {
           const ListTile(
             leading: Icon(Icons.upload),
             title: Text('upload'),
-          )
+          ),
+           ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WelcomeScreen(),
+                ),
+              );
+            },
+
+          ),
         ],
       ),
     );
