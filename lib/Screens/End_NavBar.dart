@@ -15,30 +15,24 @@ class _EndNavBarState extends State<EndNavBar> {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text(
-                'Bishal Manandhar',
-                style: TextStyle(
-                    color: Colors.black
-                )),
+            accountName: const Text('Bishal Manandhar',
+                style: TextStyle(color: Colors.black)),
             accountEmail: const Text(
               "Email.com",
-              style: TextStyle(
-                  color: Colors.black
-              ),
+              style: TextStyle(color: Colors.black),
             ),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                  child: Image.asset('assets/images/pic.png',)),
+                  child: Image.asset(
+                'assets/images/pic.png',
+              )),
             ),
-            decoration: const BoxDecoration(
-                color: Colors.transparent
-            ),
+            decoration: const BoxDecoration(color: Colors.transparent),
           ),
           const ListTile(
             leading: Icon(Icons.upload),
-            title:Text('upload'),
+            title: Text('upload'),
           )
-
         ],
       ),
     );

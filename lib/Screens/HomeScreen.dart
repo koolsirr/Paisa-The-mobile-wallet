@@ -18,26 +18,37 @@ class HomeScreen extends StatelessWidget {
         drawer: NavBar(),
         endDrawer: EndNavBar(),
         appBar: AppBar(
-          leading: Builder(builder: (context) =>
-              IconButton(onPressed: () {
-                Scaffold.of(context).openDrawer();
-              }, icon: Icon(Icons.person))),
+          leading: Builder(
+              builder: (context) => IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(Icons.person))),
           actions: [
-            Builder(builder: (context) =>
-                IconButton(onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                }, icon: Icon(Icons.more_vert_rounded))),
+            Builder(
+                builder: (context) => IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                    icon: Icon(Icons.search))),
+            Builder(
+                builder: (context) => IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                    icon: Icon(Icons.notifications))),
+            Builder(
+                builder: (context) => IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                    icon: Icon(Icons.more_vert_rounded))),
           ],
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: const CupertinoIconThemeData(
-
-              color: Colors.black
-          ),
-
+          iconTheme: const CupertinoIconThemeData(color: Colors.black),
         ),
       ),
-
     );
   }
 }

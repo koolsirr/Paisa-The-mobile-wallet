@@ -20,9 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          iconTheme: IconThemeData(
-            color: Colors.black
-          ),
+          iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -76,7 +74,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const HomeScreen()));
+                                        builder: (context) =>
+                                            const HomeScreen()));
                               },
                               icon: const Icon(Icons.arrow_forward_ios_rounded),
                             ),
