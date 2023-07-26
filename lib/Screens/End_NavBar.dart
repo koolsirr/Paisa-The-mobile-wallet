@@ -28,7 +28,7 @@ class _EndNavBarState extends State<EndNavBar> {
             ),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                  child: Image.asset('assets/images/pic.png')),
+                  child: Image.asset('assets/images/pic.png',)),
             ),
             decoration: const BoxDecoration(
                 color: Colors.transparent
