@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:paisa_majorproject/Screens/HomeScreen.dart';
 import 'package:paisa_majorproject/Screens/WelcomeScreen.dart';
 
 class NavBar extends StatefulWidget {
