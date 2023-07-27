@@ -13,23 +13,8 @@ class _EndNavBarState extends State<EndNavBar> {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: const Text('Bishal Manandhar',
-                style: TextStyle(color: Colors.black)),
-            accountEmail: const Text(
-              "Email.com",
-              style: TextStyle(color: Colors.black),
-            ),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                  child: Image.asset(
-                'assets/images/pic.png',
-              )),
-            ),
-            decoration: const BoxDecoration(color: Colors.transparent),
-          ),
-          const ListTile(
+        children: const [
+          ListTile(
             leading: Icon(Icons.upload),
             title: Text('upload'),
           )
