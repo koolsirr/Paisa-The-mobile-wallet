@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paisa_majorproject/Screens/LoginScreen.dart';
+import 'package:paisa_majorproject/Screens/VerificationPage.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -34,7 +36,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.28),
+                    top: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.28),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -130,7 +135,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 backgroundColor: const Color(0xff4c505b),
                                 child: IconButton(
                                     color: Colors.black,
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute(
+                                          builder: (context) => const VerificationPage()));
+                                    },
                                     icon: const Icon(
                                       Icons.arrow_forward,
                                     )),
