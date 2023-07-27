@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:paisa_majorproject/Screens/End_NavBar.dart';
 import 'package:paisa_majorproject/Screens/NavBar.dart';
+import 'package:paisa_majorproject/Screens/NotificationPage.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,13 +29,10 @@ class HomeScreen extends StatelessWidget {
             Builder(
                 builder: (context) => IconButton(
                     onPressed: () {
-                      Scaffold.of(context).openEndDrawer();
-                    },
-                    icon: Icon(Icons.search))),
-            Builder(
-                builder: (context) => IconButton(
-                    onPressed: () {
-                      Scaffold.of(context).openEndDrawer();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const NotificationPage()));
                     },
                     icon: Icon(Icons.notifications))),
             Builder(
