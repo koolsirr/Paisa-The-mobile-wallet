@@ -33,6 +33,8 @@ class _VerificationPageState extends State<VerificationPage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Text('Verification page',style: TextStyle(color: Colors.black),),
           leading: Builder(
               builder: (context) => IconButton(
                   onPressed: () {
