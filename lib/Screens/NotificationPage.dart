@@ -27,7 +27,7 @@ class _NotificationPageState extends State<NotificationPage> {
                       MaterialPageRoute(
                           builder: (context) => const HomeScreen()));
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: Colors.black,
                 ))),

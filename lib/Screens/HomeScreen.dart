@@ -11,15 +11,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: NavBar(),
-      endDrawer: EndNavBar(),
+      drawer: const NavBar(),
+      endDrawer: const EndNavBar(),
       appBar: AppBar(
         leading: Builder(
             builder: (context) => IconButton(
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
                 },
-                icon: Icon(Icons.person))),
+                icon: const Icon(Icons.person))),
         actions: [
           Builder(
               builder: (context) => IconButton(
@@ -29,13 +29,13 @@ class HomeScreen extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const NotificationPage()));
                   },
-                  icon: Icon(Icons.notifications))),
+                  icon: const Icon(Icons.notifications))),
           Builder(
               builder: (context) => IconButton(
                   onPressed: () {
                     Scaffold.of(context).openEndDrawer();
                   },
-                  icon: Icon(Icons.more_vert_rounded))),
+                  icon: const Icon(Icons.more_vert_rounded))),
         ],
         backgroundColor: Colors.transparent,
         elevation: 0,
