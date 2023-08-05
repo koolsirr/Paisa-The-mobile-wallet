@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paisa_majorproject/Screens/LoginScreen.dart';
+import 'package:paisa_majorproject/Screens/PhoneNumber.dart';
 import 'package:paisa_majorproject/Screens/VerificationPage.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -137,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     color: Colors.black,
                                     onPressed: () {
                                       Navigator.push(context, MaterialPageRoute(
-                                          builder: (context) => const VerificationPage()));
+                                          builder: (context) => const PhoneNumber()));
                                     },
                                     icon: const Icon(
                                       Icons.arrow_forward,

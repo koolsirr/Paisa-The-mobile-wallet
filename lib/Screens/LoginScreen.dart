@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:paisa_majorproject/Screens/RegisterScreen.dart';
 
 import 'HomeScreen.dart';
 import 'WelcomeScreen.dart';
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios_rounded,
               color: Colors.black,
             ))),
@@ -148,7 +149,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextSpan(
                         text: 'Sign up',
                         style: const TextStyle(color: Color(0xFF3D80DE)),
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        recognizer: TapGestureRecognizer()..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RegisterScreen())
+                          );
+                        },
                       ),
                     ],
                   ),

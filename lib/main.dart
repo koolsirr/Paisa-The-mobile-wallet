@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paisa_majorproject/Screens/HomeScreen.dart';
 import 'package:paisa_majorproject/Screens/NotificationPage.dart';
+import 'package:paisa_majorproject/Screens/PhoneNumber.dart';
 import 'package:paisa_majorproject/Screens/VerificationPage.dart';
 import 'package:paisa_majorproject/Screens/WelcomeScreen.dart';
 import 'Screens/LoginScreen.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
           'register': (context) => const RegisterScreen(),
           'home': (context) => const HomeScreen(),
           'notification':(context) => const NotificationPage(),
-          'verification':(context) => const VerificationPage(),
+          'phone' :(context) => const PhoneNumber(),
+          'verify':(context) => const VerificationPage(),
         });
   }
 }
