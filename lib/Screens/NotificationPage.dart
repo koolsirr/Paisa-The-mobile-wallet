@@ -12,30 +12,26 @@ class NotificationPage extends StatefulWidget {
 class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Text('Notification Page',
-                style: TextStyle(color: Colors.black)),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: Builder(
-                builder: (context) => IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios_rounded,
-                      color: Colors.black,
-                    ))),
-          ),
-        ));
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('Notification Page',
+            style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+            builder: (context) => IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
+                icon: Icon(
+                  Icons.arrow_back_ios_rounded,
+                  color: Colors.black,
+                ))),
+      ),
+    );
   }
 }

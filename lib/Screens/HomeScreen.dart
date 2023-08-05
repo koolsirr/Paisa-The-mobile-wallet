@@ -9,43 +9,37 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        drawer: NavBar(),
-        endDrawer: EndNavBar(),
-        appBar: AppBar(
-          leading: Builder(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      drawer: NavBar(),
+      endDrawer: EndNavBar(),
+      appBar: AppBar(
+        leading: Builder(
+            builder: (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(Icons.person))),
+        actions: [
+          Builder(
               builder: (context) => IconButton(
                   onPressed: () {
-                    Scaffold.of(context).openDrawer();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NotificationPage()));
                   },
-                  icon: Icon(Icons.person))),
-          actions: [
-            Builder(
-                builder: (context) => IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NotificationPage()));
-                    },
-                    icon: Icon(Icons.notifications))),
-            Builder(
-                builder: (context) => IconButton(
-                    onPressed: () {
-                      Scaffold.of(context).openEndDrawer();
-                    },
-                    icon: Icon(Icons.more_vert_rounded))),
-          ],
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          iconTheme: const CupertinoIconThemeData(color: Colors.black),
-        ),
+                  icon: Icon(Icons.notifications))),
+          Builder(
+              builder: (context) => IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  icon: Icon(Icons.more_vert_rounded))),
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const CupertinoIconThemeData(color: Colors.black),
       ),
     );
   }

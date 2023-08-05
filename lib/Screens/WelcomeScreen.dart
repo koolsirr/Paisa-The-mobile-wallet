@@ -13,78 +13,72 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/welcome.png'),
-              fit: BoxFit.cover)),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.6,
-                  left: 20,
-                  right: 20,
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      MaterialButton(
-                        height: 80,
-                        minWidth: double.infinity,
-                        color: const Color(0xFF473C38),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginScreen()));
-                        },
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.6,
+                left: 20,
+                right: 20,
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    MaterialButton(
+                      height: 80,
+                      minWidth: double.infinity,
+                      color: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    MaterialButton(
+                      height: 80,
+                      minWidth: double.infinity,
+                      color: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      MaterialButton(
-                        height: 80,
-                        minWidth: double.infinity,
-                        color: const Color(0xFF473C38),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const RegisterScreen()));
-                        },
-                        child: const Text(
-                          "Register",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const RegisterScreen()));
+                      },
+                      child: const Text(
+                        "Register",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -83,14 +83,14 @@ class _VerificationPageState extends State<VerificationPage> {
                   height: 25,
                 ),
                 const Text(
-                  "Phone Verification",
+                  "Email Verification",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 const Text(
-                  "We need to register your phone without getting started!",
+                  "We need to register your Email to get started!",
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -122,7 +122,7 @@ class _VerificationPageState extends State<VerificationPage> {
                       onPressed: () {
                         showAlert();
                       },
-                      child: const Text("Verify Phone Number")),
+                      child: const Text("Verify Email Address")),
                 ),
                 Row(
                   children: [
@@ -135,7 +135,7 @@ class _VerificationPageState extends State<VerificationPage> {
                           );
                         },
                         child: const Text(
-                          "Edit Phone Number ?",
+                          "Edit Email Address ?",
                           style: TextStyle(color: Colors.black),
                         ))
                   ],
