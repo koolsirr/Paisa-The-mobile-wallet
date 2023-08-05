@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'HomeScreen.dart';
@@ -10,110 +11,151 @@ class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
-
 class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
+
+  String? _emailValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+        .hasMatch(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+
+  String? _passwordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
-      child: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Builder(
-              builder: (context) => IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const WelcomeScreen()));
-                    },
-                    icon: const Icon(CupertinoIcons.back),
+        elevation: 0,
+        leading: Builder(
+        builder: (context) => IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            ))),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                // SvgPicture.asset('assets/logo/logo.svg'),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                Text(
+                  'Welcome back!',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
                     color: Colors.black,
-                  )),
-        ),
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text('Please login to access'),
+                const SizedBox(height: 32),
+                Form(
+                  key: _formKey,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Sign In',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w200,
+                      Text(
+                        'Email',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      const SizedBox(height: 12),
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        decoration:
+                        const InputDecoration(hintText: 'Enter your email'),
+                        validator: _emailValidator,
+                      ),
+                      const SizedBox(height: 24),
+                      Text(
+                        'Password',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      const SizedBox(height: 12),
+                      TextFormField(
+                        obscureText: _obscureText,
+                        decoration: InputDecoration(
+                          hintText: 'Enter your password',
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                          ),
+                        ),
+                        validator: _passwordValidator,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            // Implement forgot password
+                          },
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(color: Colors.blueAccent),
+                          ),
                         ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade100,
-                            filled: true,
-                            hintText: 'UserName',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13))),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade100,
-                            filled: true,
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13))),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: const Color(0xff473c38),
-                            child: IconButton(
-                              color: Colors.white,
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const HomeScreen()));
-                              },
-                              icon: const Icon(Icons.arrow_forward_ios_rounded),
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Forgot Password',
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 18,
-                                    color: Color(0xff4c505b)),
-                              ))
-                        ],
-                      )
                     ],
-                  )),
-            )
-          ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HomeScreen())
+                      );
+                    }
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                        const Size(double.infinity, 48)),
+                  ),
+                  child: const Text('Log in'),
+                ),
+                const SizedBox(height: 16),
+                RichText(
+                  text: TextSpan(
+                    text: "Don't have an account? ",
+                    style: const TextStyle(color: Colors.black),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Sign up',
+                        style: const TextStyle(color: Color(0xFF3D80DE)),
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
