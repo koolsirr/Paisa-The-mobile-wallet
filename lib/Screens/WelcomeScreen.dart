@@ -19,6 +19,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         children: [
           SingleChildScrollView(
             child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/logo.png'))),
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * 0.6,
                 left: 20,
@@ -62,8 +65,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const RegisterScreen()));
+                                builder: (context) => const RegisterScreen()));
                       },
                       child: const Text(
                         "Register",
