@@ -113,7 +113,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   height: 45,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
+                          backgroundColor: Colors.blueAccent,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
@@ -127,7 +127,7 @@ class _VerificationPageState extends State<VerificationPage> {
                         onPressed: () {
                           Navigator.pushNamedAndRemoveUntil(
                             context,
-                            'phone',
+                            'register',
                                 (route) => false,
                           );
                         },

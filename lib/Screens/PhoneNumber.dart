@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paisa_majorproject/Screens/VerificationPage.dart';
 
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({super.key});
@@ -11,17 +12,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController countryController = TextEditingController();
-
-  String? _emailValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your email';
-    }
-    if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
-        .hasMatch(value)) {
-      return 'Please enter a valid email';
-    }
-    return null;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,40 +65,28 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   height: 30,
                 ),
                 SizedBox(
-                  height: 55,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          textInputAction: TextInputAction.next,
-                          decoration: const InputDecoration(
-                              hintText: 'Enter your email'),
-                          validator: _emailValidator,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
                   width: double.infinity,
                   height: 45,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, 'verify');
-                        }
-                      },
-                      child: const Text("Send the code")),
-                )
+                  child: MaterialButton(
+                    minWidth: double.infinity,
+                    color: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const VerificationPage()));
+                    },
+                    child: const Text(
+                      "Send the Code",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                     ),
               ],
             ),
           ),

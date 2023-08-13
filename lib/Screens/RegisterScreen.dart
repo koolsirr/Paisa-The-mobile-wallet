@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:paisa_majorproject/Screens/PhoneNumber.dart';
-import 'package:paisa_majorproject/Screens/RegisterScreen.dart';
 
-import 'HomeScreen.dart';
-import 'WelcomeScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -38,6 +34,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _passwordValidator(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your password';
+    }
+    return null;
+  }
+
+  String? _passwordReValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please Re-enter your password';
     }
     return null;
   }
@@ -130,6 +133,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         validator: _passwordValidator,
+                      ),
+                      const SizedBox(height: 12),
+                      TextFormField(
+                        obscureText: _obscureText,
+                        decoration: InputDecoration(
+                          hintText: 'Re-enter your password',
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                          ),
+                        ),
+                        validator: _passwordReValidator,
                       ),
                       const SizedBox(height: 24),
                     ],
