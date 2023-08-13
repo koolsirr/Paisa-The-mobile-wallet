@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  bool rememberUser = false;
 
   String? _emailValidator(String? value) {
     if (value == null || value.isEmpty) {
@@ -108,18 +109,33 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         validator: _passwordValidator,
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            // Implement forgot password
-                          },
-                          child: const Text(
-                            'Forgot password?',
-                            style: TextStyle(color: Colors.blueAccent),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Checkbox(
+                              value: rememberUser,
+                              onChanged: (value) {
+                                setState(() {
+                                  rememberUser = value!;
+                                });
+                              }
+                              ),
+                          const Text('Remember Me'),
+                          const SizedBox(
+                            width: 105,
                           ),
-                        ),
+                          TextButton(
+                            onPressed: () {
+                              // Implement forgot password
+                            },
+                            child: const Text(
+                              'Forgot password?',
+                              style: TextStyle(color: Colors.blueAccent),
+                            ),
+                          ),
+                        ],
                       ),
+                      const SizedBox(height: 12),
                     ],
                   ),
                 ),
@@ -135,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
                         const Size(double.infinity, 48)),
+                    backgroundColor: const MaterialStatePropertyAll(Colors.blueAccent)
                   ),
                   child: const Text('Log in'),
                 ),
@@ -165,3 +182,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
